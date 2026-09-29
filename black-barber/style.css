@@ -1,0 +1,1073 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+/* Remove margens e espaçamentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Rolagem suave ao clicar no menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Configurações principais da página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b0b0b;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Remove o sublinhado dos links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   CORES DA MARCA
+   ========================================= */
+
+:root {
+    /* Cor dourada usada nos detalhes */
+    --dourado: #c9a227;
+
+    /* Dourado mais claro para alguns efeitos */
+    --dourado-claro: #e0bc45;
+
+    /* Fundo principal */
+    --preto: #0b0b0b;
+
+    /* Fundo um pouco mais claro */
+    --preto-claro: #111111;
+
+    /* Cinza para textos */
+    --cinza: #bdbdbd;
+
+    /* Borda discreta */
+    --borda: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+.cabecalho {
+    /* Mantém o cabeçalho visível ao rolar */
+    position: sticky;
+    top: 0;
+
+    /* Fica acima dos outros elementos */
+    z-index: 100;
+
+    /* Fundo escuro */
+    background: rgba(11, 11, 11, 0.95);
+
+    /* Efeito de vidro */
+    backdrop-filter: blur(10px);
+
+    /* Organiza os elementos lado a lado */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* Espaçamento interno */
+    padding: 20px 6%;
+
+    /* Linha discreta */
+    border-bottom: 1px solid var(--borda);
+}
+
+
+/* Logo */
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* Parte dourada da logo */
+.logo span {
+    color: var(--dourado);
+}
+
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* Links do menu */
+.menu a {
+    color: #dddddd;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+
+/* Efeito ao passar o mouse */
+.menu a:hover {
+    color: var(--dourado);
+}
+
+
+/* Botão do cabeçalho */
+.botao-menu {
+    background: var(--dourado);
+    color: #080808;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+
+/* Efeito do botão */
+.botao-menu:hover {
+    background: var(--dourado-claro);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+    /* Imagem principal do Hero */
+    background-image: url("imagens/ChatGPT Image 28 de set. de 2026, 22_19_49.png");
+
+    /* Faz a imagem preencher o Hero */
+    background-size: cover;
+
+    /* Posicionamento da imagem */
+    background-position: center;
+
+    /* Não deixa a imagem se repetir */
+    background-repeat: no-repeat;
+
+    /* Altura mínima */
+    min-height: 85vh;
+
+    /* Permite posicionar elementos sobre a imagem */
+    position: relative;
+
+    /* Organiza o conteúdo */
+    display: flex;
+    align-items: center;
+
+    /* Esconde qualquer excesso */
+    overflow: hidden;
+}
+
+
+/* Camada escura sobre a imagem */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Degradê para melhorar a leitura do texto */
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.72) 38%,
+            rgba(0, 0, 0, 0.25) 100%
+        );
+
+    z-index: 1;
+}
+
+
+/* Conteúdo do Hero */
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+    padding: 100px 7%;
+}
+
+
+/* Pequeno destaque */
+.hero-destaque {
+    color: var(--dourado);
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+
+/* Título principal */
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.98;
+    margin-bottom: 25px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+
+/* Palavra dourada do título */
+.hero h1 span {
+    color: var(--dourado);
+}
+
+
+/* Texto do Hero */
+.hero p {
+    color: #dddddd;
+    max-width: 500px;
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+}
+
+
+/* Container dos botões */
+.hero-botoes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================
+   BOTÕES
+   ========================================= */
+
+.botao-principal {
+    display: inline-block;
+    background: var(--dourado);
+    color: #080808;
+    padding: 14px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Efeito do botão principal */
+.botao-principal:hover {
+    background: var(--dourado-claro);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.2);
+}
+
+
+/* Botão secundário */
+.botao-secundario {
+    display: inline-block;
+    padding: 13px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+/* Efeito do botão secundário */
+.botao-secundario:hover {
+    border-color: var(--dourado);
+    color: var(--dourado);
+}
+
+
+/* =========================================
+   SEÇÕES
+   ========================================= */
+
+.secao {
+    padding: 100px 7%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Pequeno título dourado */
+.destaque-secao {
+    display: inline-block;
+    color: var(--dourado);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+
+/* Títulos das seções */
+.secao h2 {
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1.05;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+
+/* Palavras douradas */
+.secao h2 span {
+    color: var(--dourado);
+}
+
+
+/* Texto abaixo dos títulos */
+.texto-secao {
+    color: var(--cinza);
+    margin-bottom: 45px;
+}
+
+
+/* =========================================
+   SERVIÇOS
+   ========================================= */
+
+#servicos {
+    background-color: var(--preto);
+}
+
+
+/* Container dos cards */
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+
+/* Card individual */
+.servico-card {
+    background: var(--preto-claro);
+    border: 1px solid var(--borda);
+    padding: 30px;
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Linha dourada no topo */
+.servico-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--dourado);
+    transition: 0.3s;
+}
+
+
+/* Efeito ao passar o mouse */
+.servico-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(201, 162, 39, 0.35);
+}
+
+
+/* Faz a linha aparecer */
+.servico-card:hover::before {
+    width: 100%;
+}
+
+
+/* Ícone */
+.servico-icone {
+    font-size: 2rem;
+    color: var(--dourado);
+    margin-bottom: 25px;
+}
+
+
+/* Nome do serviço */
+.servico-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+
+/* Descrição */
+.servico-card p {
+    color: var(--cinza);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+
+/* Preço */
+.servico-card strong {
+    color: var(--dourado);
+    font-size: 1.2rem;
+    margin-top: auto;
+}
+
+
+/* =========================================
+   SOBRE
+   ========================================= */
+
+.sobre {
+    /* Organiza texto e imagem lado a lado */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+
+    /* Fundo da seção */
+    background-color: var(--preto-claro);
+
+    /* Evita que a imagem fique colada nas bordas */
+    overflow: hidden;
+}
+
+
+/* =========================================
+   TEXTO DO SOBRE
+   ========================================= */
+
+.sobre-texto p {
+    color: var(--cinza);
+    max-width: 600px;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   IMAGEM DO SOBRE
+   ========================================= */
+
+.sobre-imagem {
+    /* Altura da área da imagem */
+    min-height: 500px;
+
+    /* Permite posicionar os elementos sobre a foto */
+    position: relative;
+
+    /* Esconde o excesso do zoom */
+    overflow: hidden;
+
+    /* Borda dourada discreta */
+    border: 1px solid rgba(201, 162, 39, 0.45);
+
+    background: #111111;
+
+    /* Sombra elegante */
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(201, 162, 39, 0.06);
+}
+
+
+/* Fotografia */
+.sobre-imagem img {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+    /* Zoom suave */
+    transition: transform 0.6s ease;
+}
+
+
+/* Zoom quando passa o mouse */
+.sobre-imagem:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   CAMADA ESCURA DA IMAGEM
+   ========================================= */
+
+.sobre-overlay {
+    position: absolute;
+    inset: 0;
+
+    /* Degradê escuro na parte inferior */
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.92) 0%,
+            rgba(0, 0, 0, 0.38) 55%,
+            rgba(0, 0, 0, 0.08) 100%
+        );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   MOLDURA DOURADA
+   ========================================= */
+
+.sobre-moldura {
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(224, 188, 69, 0.65);
+    z-index: 2;
+    pointer-events: none;
+
+    /* Brilho discreto */
+    box-shadow:
+        inset 0 0 20px rgba(201, 162, 39, 0.04);
+}
+
+
+/* Detalhe dourado no canto superior */
+.sobre-moldura::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 80px;
+    height: 3px;
+    background: var(--dourado-claro);
+    box-shadow:
+        0 0 12px rgba(224, 188, 69, 0.45);
+}
+
+
+/* Detalhe dourado no canto inferior */
+.sobre-moldura::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 80px;
+    height: 3px;
+    background: var(--dourado-claro);
+    box-shadow:
+        0 0 12px rgba(224, 188, 69, 0.45);
+}
+
+
+/* =========================================
+   TEXTO SOBRE A FOTO
+   ========================================= */
+
+.sobre-legenda {
+    position: absolute;
+    left: 45px;
+    bottom: 45px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+/* Texto pequeno */
+.sobre-legenda span {
+    color: var(--dourado-claro);
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+
+/* Nome da barbearia */
+.sobre-legenda strong {
+    color: #ffffff;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    letter-spacing: 5px;
+
+    /* Pequeno brilho dourado */
+    text-shadow:
+        0 0 20px rgba(201, 162, 39, 0.18);
+}
+
+
+/* =========================================
+   GALERIA NOVA
+   ========================================= */
+
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+
+.galeria-item {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+
+/* =========================================
+   FOTOS ILUSTRATIVAS
+   ========================================= */
+
+.galeria-corte {
+    background-image:
+        url("https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85");
+}
+
+
+.galeria-barba {
+    background-image:
+        url("https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85");
+}
+
+
+.galeria-ambiente {
+    background-image:
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85");
+}
+
+
+/* =========================================
+   EFEITO ESCURO SOBRE AS FOTOS
+   ========================================= */
+
+.galeria-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.35) 45%,
+            rgba(0, 0, 0, 0.05) 100%
+        );
+    transition: 0.5s ease;
+}
+
+
+/* =========================================
+   LEGENDA DAS FOTOS
+   ========================================= */
+
+.galeria-legenda {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    transform: translateY(8px);
+    transition: 0.4s ease;
+}
+
+
+.galeria-legenda span {
+    color: var(--dourado);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+
+.galeria-legenda h3 {
+    font-size: 1.8rem;
+    margin: 5px 0;
+}
+
+
+.galeria-legenda p {
+    color: #d0d0d0;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   EFEITOS DA GALERIA
+   ========================================= */
+
+.galeria-item:hover {
+    transform: scale(1.02);
+    border-color: rgba(201, 162, 39, 0.6);
+}
+
+
+.galeria-item:hover::before {
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 0.15)
+        );
+}
+
+
+.galeria-item:hover .galeria-legenda {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   AGENDAMENTO
+   ========================================= */
+
+.agendamento {
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 162, 39, 0.08),
+            transparent 65%
+        );
+}
+
+
+/* Texto do agendamento */
+.agendamento > p {
+    color: var(--cinza);
+    margin-bottom: 35px;
+}
+
+
+/* Formulário */
+#form-agendamento {
+    max-width: 650px;
+    margin: 0 auto;
+    display: grid;
+    gap: 15px;
+}
+
+
+/* Campos */
+#form-agendamento input,
+#form-agendamento select {
+    width: 100%;
+    padding: 16px;
+    background: #151515;
+    border: 1px solid var(--borda);
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+/* Placeholder */
+#form-agendamento input::placeholder {
+    color: #888888;
+}
+
+
+/* Quando o usuário seleciona o campo */
+#form-agendamento input:focus,
+#form-agendamento select:focus {
+    border-color: var(--dourado);
+}
+
+
+/* Botão do formulário */
+#form-agendamento button {
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   CONTATO
+   ========================================= */
+
+.contato {
+    text-align: center;
+}
+
+
+/* Informações */
+.contato-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+
+/* Cada informação */
+.contato-info > div {
+    background: var(--preto-claro);
+    border: 1px solid var(--borda);
+    padding: 30px;
+    transition: 0.3s;
+}
+
+
+/* Efeito */
+.contato-info > div:hover {
+    border-color: rgba(201, 162, 39, 0.4);
+    transform: translateY(-5px);
+}
+
+
+/* Título */
+.contato-info strong {
+    color: var(--dourado);
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/* Texto */
+.contato-info p {
+    color: var(--cinza);
+}
+
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: #070707;
+    border-top: 1px solid var(--borda);
+}
+
+
+/* Nome */
+footer strong {
+    color: var(--dourado);
+    letter-spacing: 3px;
+}
+
+
+/* Frase */
+footer p {
+    color: #777777;
+    margin: 10px 0 20px;
+}
+
+
+/* Link para voltar */
+footer a {
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+
+/* Efeito */
+footer a:hover {
+    color: var(--dourado);
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* Esconde o menu tradicional */
+    .menu {
+        display: none;
+    }
+
+
+    /* Serviços passam para duas colunas */
+    .servicos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Sobre passa para uma coluna */
+    .sobre {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+
+    /* Galeria passa para duas colunas */
+    .galeria-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* Contato passa para uma coluna */
+    .contato-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Hero um pouco menor */
+    .hero {
+        min-height: 75vh;
+        background-position: center;
+    }
+
+
+    /* Imagem do Sobre */
+    .sobre-imagem {
+        min-height: 450px;
+    }
+
+
+    .sobre-imagem img {
+        min-height: 450px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* Cabeçalho */
+    .cabecalho {
+        padding: 18px 5%;
+    }
+
+
+    /* Esconde botão do cabeçalho */
+    .botao-menu {
+        display: none;
+    }
+
+
+    /* Hero */
+    .hero {
+        min-height: 75vh;
+
+        /* Mostra melhor o barbeiro no celular */
+        background-position: 62% center;
+    }
+
+
+    /* Overlay mais forte no celular */
+    .hero-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0.88),
+                rgba(0, 0, 0, 0.50)
+            );
+    }
+
+
+    /* Conteúdo */
+    .hero-conteudo {
+        padding: 80px 6%;
+    }
+
+
+    /* Título */
+    .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: -1px;
+    }
+
+
+    /* Botões ficam um abaixo do outro */
+    .hero-botoes {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* Botões ocupam uma largura confortável */
+    .hero-botoes a {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* Seções */
+    .secao {
+        padding: 75px 6%;
+    }
+
+
+    /* Serviços */
+    .servicos-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Galeria */
+    .galeria-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Galeria fica um pouco menor no celular */
+    .galeria-item {
+        height: 350px;
+    }
+
+
+    /* Sobre */
+    .sobre {
+        gap: 40px;
+    }
+
+
+    /* Imagem do Sobre */
+    .sobre-imagem {
+        min-height: 380px;
+    }
+
+
+    .sobre-imagem img {
+        min-height: 380px;
+    }
+
+
+    /* Moldura dourada */
+    .sobre-moldura {
+        inset: 12px;
+    }
+
+
+    /* Texto sobre a imagem */
+    .sobre-legenda {
+        left: 30px;
+        bottom: 30px;
+    }
+
+
+    .sobre-legenda span {
+        font-size: 0.6rem;
+        letter-spacing: 3px;
+    }
+
+
+    .sobre-legenda strong {
+        font-size: 1.6rem;
+        letter-spacing: 3px;
+    }
+}

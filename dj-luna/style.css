@@ -1,0 +1,1962 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+/* Remove margens e espaçamentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Rolagem suave ao clicar nos links do menu */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Cores principais do site */
+:root {
+    --roxo: #9b5cff;
+    --roxo-claro: #c59cff;
+    --rosa: #ff4fd8;
+    --azul: #5ce1ff;
+    --fundo: #080611;
+    --fundo-claro: #100d1d;
+    --cinza: #aaa5b8;
+    --branco: #ffffff;
+    --borda: rgba(255, 255, 255, 0.1);
+}
+
+/* Configuração principal da página */
+body {
+    background: var(--fundo);
+    color: var(--branco);
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Impede que elementos criem rolagem horizontal */
+    overflow-x: hidden;
+
+    /* Garante que a largura não ultrapasse a tela */
+    width: 100%;
+}
+
+/* Evita que imagens ultrapassem seus containers */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Remove decoração dos links */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+.cabecalho {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 90px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(8, 6, 17, 0.9),
+            transparent
+        );
+}
+
+/* Logo */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    flex-shrink: 0;
+}
+
+/* Ponto colorido da logo */
+.logo span {
+    color: var(--rosa);
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* Links do menu */
+.menu a {
+    color: #d8d3df;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+.menu a:hover {
+    color: var(--rosa);
+}
+
+/* Botão do cabeçalho */
+.botao-header {
+    padding: 12px 22px;
+
+    border: 1px solid var(--rosa);
+    border-radius: 30px;
+
+    color: white;
+
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+    white-space: nowrap;
+}
+
+/* Efeito do botão */
+.botao-header:hover {
+    background: var(--rosa);
+    color: var(--fundo);
+}
+
+
+/* =========================================
+   HERO / INÍCIO
+   ========================================= */
+
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: var(--fundo);
+}
+
+/* =========================================
+   FOTO DO SHOW NO FUNDO
+   ========================================= */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(8, 6, 17, 0.35),
+            rgba(8, 6, 17, 0.72)
+        ),
+        url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=2000&q=90");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.9;
+
+    z-index: 0;
+}
+
+/* =========================================
+   ILUMINAÇÃO COLORIDA SOBRE O SHOW
+   ========================================= */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(155, 92, 255, 0.28),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 25% 70%,
+            rgba(255, 79, 216, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 65%,
+            rgba(92, 225, 255, 0.15),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            to bottom,
+            transparent 25%,
+            rgba(8, 6, 17, 0.3) 55%,
+            rgba(8, 6, 17, 0.82) 100%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+/* =========================================
+   CAMADA ESCURA
+   ========================================= */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 6, 17, 0.35),
+            transparent 50%,
+            rgba(8, 6, 17, 0.35)
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BRILHOS DECORATIVOS
+   ========================================= */
+
+.hero-brilho {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+/* Brilho roxo */
+.hero-brilho-1 {
+    width: 8px;
+    height: 8px;
+
+    left: 18%;
+    top: 32%;
+
+    background: var(--roxo);
+
+    box-shadow:
+        0 0 15px var(--roxo),
+        0 0 35px var(--roxo);
+}
+
+/* Brilho azul */
+.hero-brilho-2 {
+    width: 6px;
+    height: 6px;
+
+    right: 20%;
+    top: 38%;
+
+    background: var(--azul);
+
+    box-shadow:
+        0 0 15px var(--azul),
+        0 0 30px var(--azul);
+}
+
+
+/* =========================================
+   CONTEÚDO CENTRAL
+   ========================================= */
+
+.hero-conteudo {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(90%, 1050px);
+
+    margin: 0 auto;
+
+    padding-top: 60px;
+
+    text-align: center;
+}
+
+/* Pequeno destaque acima do título */
+.hero-destaque {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+
+    color: var(--azul);
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 0 10px rgba(92, 225, 255, 0.7);
+}
+
+/* Linha antes do destaque */
+.hero-destaque::before {
+    content: "";
+
+    width: 35px;
+    height: 1px;
+
+    margin-right: 12px;
+
+    background: var(--azul);
+
+    box-shadow:
+        0 0 10px rgba(92, 225, 255, 0.9);
+}
+
+
+/* =========================================
+   TÍTULO PRINCIPAL
+   ========================================= */
+
+.hero h1 {
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    font-size: clamp(4rem, 9vw, 8.5rem);
+
+    line-height: 0.88;
+
+    letter-spacing: -5px;
+
+    font-weight: 900;
+
+    text-shadow:
+        0 8px 35px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(255, 255, 255, 0.1);
+}
+
+/* Segunda parte do título */
+.hero h1 span {
+    display: block;
+
+    color: transparent;
+
+    -webkit-text-stroke: 2px var(--rosa);
+
+    text-shadow:
+        0 0 25px rgba(255, 79, 216, 0.5),
+        0 0 60px rgba(255, 79, 216, 0.2);
+}
+
+/* Linha colorida abaixo do título */
+.hero h1::after {
+    content: "";
+
+    display: block;
+
+    width: 110px;
+    height: 3px;
+
+    margin: 30px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--roxo),
+            var(--rosa),
+            var(--azul)
+        );
+
+    box-shadow:
+        0 0 15px rgba(255, 79, 216, 0.8);
+}
+
+
+/* =========================================
+   TEXTO DO HERO
+   ========================================= */
+
+.hero p {
+    max-width: 620px;
+
+    margin: 30px auto 0;
+
+    color: #ddd8e4;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================
+   BOTÕES DO HERO
+   ========================================= */
+
+.hero-botoes {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+/* Botão principal */
+.botao-principal {
+    display: inline-block;
+
+    padding: 16px 30px;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--roxo),
+            var(--rosa)
+        );
+
+    font-weight: bold;
+
+    box-shadow:
+        0 10px 30px rgba(255, 79, 216, 0.3);
+
+    transition: 0.3s;
+
+    text-align: center;
+}
+
+/* Hover do botão principal */
+.botao-principal:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(255, 79, 216, 0.5);
+}
+
+/* Segundo botão */
+.botao-secundario {
+    display: inline-block;
+
+    padding: 16px 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 4px;
+
+    color: white;
+
+    background:
+        rgba(8, 6, 17, 0.4);
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s;
+}
+
+/* Hover do segundo botão */
+.botao-secundario:hover {
+    border-color: var(--azul);
+
+    color: var(--azul);
+
+    transform: translateY(-4px);
+
+    background:
+        rgba(8, 6, 17, 0.65);
+}
+
+
+/* =========================================
+   LUNA GIGANTE DECORATIVO
+   ========================================= */
+
+.hero-decoracao {
+    position: absolute;
+
+    right: -40px;
+    bottom: -100px;
+
+    font-size: 19rem;
+
+    font-weight: 900;
+
+    letter-spacing: -15px;
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255, 255, 255, 0.07);
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   ONDAS DECORATIVAS
+   ========================================= */
+
+.hero-ondas {
+    position: absolute;
+
+    right: -80px;
+    bottom: 90px;
+
+    width: 430px;
+    height: 180px;
+
+    transform: rotate(-8deg);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+/* Cada onda */
+.hero-ondas span {
+    position: absolute;
+
+    width: 100%;
+    height: 90px;
+
+    border-top:
+        1px solid rgba(92, 225, 255, 0.45);
+
+    border-bottom:
+        1px solid rgba(255, 79, 216, 0.35);
+
+    border-radius: 50%;
+}
+
+/* Primeira onda */
+.hero-ondas span:nth-child(1) {
+    top: 0;
+}
+
+/* Segunda onda */
+.hero-ondas span:nth-child(2) {
+    top: 18px;
+
+    transform: scale(0.85);
+}
+
+/* Terceira onda */
+.hero-ondas span:nth-child(3) {
+    top: 36px;
+
+    transform: scale(0.7);
+}
+
+
+/* =========================================
+   INDICADOR DE ROLAGEM
+   ========================================= */
+
+.hero-scroll {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.6rem;
+
+    letter-spacing: 3px;
+
+    z-index: 5;
+}
+
+/* Linha */
+.hero-scroll span {
+    display: block;
+
+    width: 30px;
+    height: 1px;
+
+    background: var(--rosa);
+
+    box-shadow:
+        0 0 10px rgba(255, 79, 216, 0.8);
+}
+
+
+/* =========================================
+   CONFIGURAÇÃO DAS SEÇÕES
+   ========================================= */
+
+.secao {
+    position: relative;
+
+    padding: 130px 8%;
+}
+
+/* Pequeno título das seções */
+.destaque-secao {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    color: var(--rosa);
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   SOBRE
+   ========================================= */
+
+.sobre {
+    min-height: 750px;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 8%;
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(92, 225, 255, 0.08),
+            transparent 25%
+        ),
+        var(--fundo-claro);
+}
+
+/* Área da imagem */
+.sobre-imagem {
+    position: relative;
+
+    height: 570px;
+
+    order: 2;
+
+    min-width: 0;
+}
+
+/* Imagem */
+.sobre-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: saturate(0.8);
+
+    border-radius: 2px;
+}
+
+/* Efeito sobre a imagem */
+.sobre-imagem::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155, 92, 255, 0.2),
+            transparent 50%,
+            rgba(255, 79, 216, 0.15)
+        );
+
+    pointer-events: none;
+}
+
+/* Conteúdo */
+.sobre-conteudo {
+    order: 1;
+
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+}
+
+/* Título */
+.sobre-conteudo h2 {
+    max-width: 650px;
+
+    font-size: clamp(3rem, 6vw, 6rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+/* Destaque */
+.sobre-conteudo h2 span {
+    display: block;
+
+    color: var(--roxo-claro);
+}
+
+/* Texto */
+.sobre-conteudo p {
+    max-width: 550px;
+
+    margin-top: 25px;
+
+    color: var(--cinza);
+
+    line-height: 1.8;
+}
+
+/* Números */
+.sobre-numeros {
+    display: flex;
+
+    gap: 50px;
+
+    margin-top: 45px;
+
+    flex-wrap: wrap;
+}
+
+/* Cada número */
+.sobre-numeros div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+/* Número */
+.sobre-numeros strong {
+    font-size: 2rem;
+
+    color: var(--azul);
+}
+
+/* Texto */
+.sobre-numeros span {
+    color: var(--cinza);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   SETS
+   ========================================= */
+
+.sets {
+    background: var(--fundo);
+}
+
+/* Texto decorativo */
+.sets::before {
+    content: "MÚSICA";
+
+    position: absolute;
+
+    top: 40px;
+    right: 7%;
+
+    font-size: clamp(4rem, 7vw, 7rem);
+
+    font-weight: 900;
+
+    color: transparent;
+
+    -webkit-text-stroke:
+        1px rgba(255, 255, 255, 0.05);
+
+    pointer-events: none;
+}
+
+/* Lista */
+.sets-container {
+    margin-top: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+/* Card */
+.set-card {
+    min-height: 120px;
+
+    display: grid;
+
+    grid-template-columns: 100px minmax(0, 1fr) 100px;
+
+    align-items: center;
+
+    padding: 25px 35px;
+
+    border-top:
+        1px solid var(--borda);
+
+    transition: 0.3s;
+}
+
+/* Último card */
+.set-card:last-child {
+    border-bottom:
+        1px solid var(--borda);
+}
+
+/* Hover */
+.set-card:hover {
+    padding-left: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(155, 92, 255, 0.12),
+            transparent
+        );
+}
+
+/* Número */
+.set-numero {
+    color: var(--rosa);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 2px;
+}
+
+/* Informações */
+.set-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    min-width: 0;
+}
+
+/* Nome */
+.set-info h3 {
+    font-size: 1.5rem;
+
+    overflow-wrap: anywhere;
+}
+
+/* Estilo */
+.set-info span {
+    color: var(--cinza);
+
+    font-size: 0.85rem;
+}
+
+/* Play */
+.botao-play {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    justify-self: end;
+
+    border: 1px solid var(--roxo);
+
+    border-radius: 50%;
+
+    color: var(--roxo-claro);
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* Hover */
+.botao-play:hover {
+    background: var(--roxo);
+
+    color: white;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   EVENTOS
+   ========================================= */
+
+.eventos {
+    background: var(--fundo-claro);
+
+    overflow: hidden;
+}
+
+/* Container */
+.eventos-container {
+    margin-top: 60px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 40px;
+}
+
+/* Card */
+.evento-card {
+    position: relative;
+
+    min-height: 180px;
+
+    display: grid;
+
+    grid-template-columns: 130px minmax(0, 1fr) auto;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 30px;
+
+    border-left:
+        2px solid var(--roxo);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition: 0.3s;
+
+    min-width: 0;
+}
+
+/* Segundo evento */
+.evento-card:nth-child(2) {
+    transform: translateX(60px);
+}
+
+/* Terceiro evento */
+.evento-card:nth-child(3) {
+    transform: translateX(120px);
+}
+
+/* Hover */
+.evento-card:hover {
+    border-left-color: var(--rosa);
+
+    background:
+        rgba(255, 79, 216, 0.06);
+}
+
+/* Data */
+.evento-data {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+/* Dia */
+.evento-data strong {
+    font-size: 3rem;
+
+    line-height: 1;
+
+    color: var(--azul);
+}
+
+/* Mês */
+.evento-data span {
+    color: var(--cinza);
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+}
+
+/* Nome */
+.evento-info h3 {
+    font-size: 1.4rem;
+
+    margin-bottom: 8px;
+}
+
+/* Horário */
+.evento-info p {
+    color: var(--cinza);
+
+    font-size: 0.85rem;
+}
+
+/* Link */
+.evento-link {
+    color: var(--rosa);
+
+    font-size: 0.8rem;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   GALERIA
+   ========================================= */
+
+.galeria {
+    background: var(--fundo);
+}
+
+/* Grade */
+.galeria-container {
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    grid-template-rows: 300px 300px;
+
+    gap: 15px;
+}
+
+/* Item */
+.galeria-item {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background: var(--fundo-claro);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04);
+
+    transition:
+        box-shadow 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* Primeira imagem */
+.galeria-1 {
+    grid-row: span 2;
+}
+
+/* Segunda imagem */
+.galeria-2 {
+    transform: translateY(25px);
+}
+
+/* Terceira imagem */
+.galeria-3 {
+    transform: translateY(-25px);
+}
+
+/* Imagem */
+.galeria-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image: inherit;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1);
+
+    transition:
+        transform 0.7s cubic-bezier(.2, .7, .2, 1),
+        filter 0.5s ease;
+
+    z-index: 0;
+}
+
+/* Overlay */
+.galeria-item::after {
+    content: "↗";
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: flex-end;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155, 92, 255, 0.20),
+            transparent 40%,
+            rgba(255, 79, 216, 0.18)
+        ),
+
+        linear-gradient(
+            to top,
+            rgba(8, 6, 17, 0.55),
+            transparent 55%
+        );
+
+    color: white;
+
+    font-size: 1.4rem;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease,
+        color 0.4s ease;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+/* Zoom */
+.galeria-item:hover::before {
+    transform: scale(1.08);
+
+    filter:
+        saturate(1.15)
+        brightness(1.05);
+}
+
+/* Overlay aparece */
+.galeria-item:hover::after {
+    opacity: 1;
+
+    color: var(--azul);
+
+    text-shadow:
+        0 0 12px var(--azul),
+        0 0 25px var(--rosa);
+}
+
+/* Brilho */
+.galeria-item:hover {
+    box-shadow:
+        0 0 0 1px rgba(155, 92, 255, 0.45),
+        0 0 25px rgba(155, 92, 255, 0.18),
+        0 0 45px rgba(255, 79, 216, 0.08);
+}
+
+/* Movimento */
+.galeria-1:hover {
+    transform: scale(1.008);
+}
+
+.galeria-2:hover {
+    transform: translateY(25px) scale(1.008);
+}
+
+.galeria-3:hover {
+    transform: translateY(-25px) scale(1.008);
+}
+
+
+/* =========================================
+   CONTATO
+   ========================================= */
+
+.contato {
+    min-height: 550px;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 79, 216, 0.15),
+            transparent 30%
+        ),
+        var(--fundo-claro);
+}
+
+/* Título */
+.contato h2 {
+    max-width: 800px;
+
+    font-size: clamp(4rem, 8vw, 8rem);
+
+    line-height: 0.85;
+
+    letter-spacing: -5px;
+}
+
+/* Texto destacado */
+.contato h2 span {
+    color: var(--rosa);
+}
+
+/* Texto */
+.contato p {
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: var(--cinza);
+
+    line-height: 1.7;
+}
+
+/* Botões */
+.contato-botoes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+/* Botão */
+.botao-contato {
+    min-height: 64px;
+
+    padding: 18px 25px;
+
+    border: 1px solid var(--borda);
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    font-size: 1rem;
+}
+
+/* Hover */
+.botao-contato:hover {
+    border-color: var(--rosa);
+
+    transform: translateX(10px);
+
+    background:
+        rgba(255, 79, 216, 0.08);
+}
+
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+footer {
+    padding: 35px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top:
+        1px solid var(--borda);
+
+    background: var(--fundo);
+
+    color: var(--cinza);
+
+    font-size: 0.75rem;
+}
+
+/* Nome no rodapé */
+footer strong {
+    color: white;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================
+   TABLET / NOTEBOOK MENOR
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    /* Diminui o espaço do menu */
+    .menu {
+        gap: 20px;
+    }
+
+    /* Diminui o espaço lateral */
+    .secao {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    /* Ajusta a seção Sobre */
+    .sobre {
+        gap: 5%;
+    }
+
+    /* Ajusta os eventos */
+    .eventos-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Remove deslocamentos que poderiam cortar a tela */
+    .evento-card:nth-child(2),
+    .evento-card:nth-child(3) {
+        transform: none;
+    }
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    /* Esconde o menu para evitar apertar o cabeçalho */
+    .menu {
+        display: none;
+    }
+
+    /* Sobre vira uma coluna */
+    .sobre {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        min-height: auto;
+    }
+
+    /* Imagem */
+    .sobre-imagem {
+        order: 1;
+
+        height: 500px;
+    }
+
+    /* Texto */
+    .sobre-conteudo {
+        order: 2;
+    }
+
+    /* Contato vira uma coluna */
+    .contato {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    /* Ajusta o título de contato */
+    .contato h2 {
+        font-size: clamp(3.5rem, 9vw, 6rem);
+    }
+
+    /* Galeria */
+    .galeria-container {
+        grid-template-columns: 1.2fr 1fr;
+
+        grid-template-rows:
+            minmax(260px, 35vw)
+            minmax(260px, 35vw);
+    }
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================
+       CABEÇALHO
+       ===================================== */
+
+    .cabecalho {
+        min-height: 75px;
+
+        padding: 0 6%;
+    }
+
+    /* Logo */
+    .logo {
+        font-size: 1.4rem;
+
+        letter-spacing: 3px;
+    }
+
+    /* Esconde botão de contratação no celular */
+    .botao-header {
+        display: none;
+    }
+
+
+    /* =====================================
+       HERO
+       ===================================== */
+
+    .hero {
+        min-height: 90svh;
+    }
+
+    /* Conteúdo */
+    .hero-conteudo {
+        width: 88%;
+
+        padding-top: 50px;
+    }
+
+    /* Destaque */
+    .hero-destaque {
+        max-width: 100%;
+
+        justify-content: center;
+
+        font-size: 0.62rem;
+
+        letter-spacing: 2.5px;
+
+        line-height: 1.5;
+    }
+
+    /* Linha do destaque */
+    .hero-destaque::before {
+        width: 20px;
+
+        margin-right: 8px;
+    }
+
+    /* Título */
+    .hero h1 {
+        font-size: clamp(3rem, 15vw, 5rem);
+
+        letter-spacing: -3px;
+
+        line-height: 0.9;
+    }
+
+    /* Contorno do título */
+    .hero h1 span {
+        -webkit-text-stroke: 1.5px var(--rosa);
+    }
+
+    /* Linha abaixo do título */
+    .hero h1::after {
+        width: 80px;
+
+        margin-top: 22px;
+    }
+
+    /* Texto */
+    .hero p {
+        max-width: 100%;
+
+        margin-top: 24px;
+
+        font-size: 0.9rem;
+
+        line-height: 1.65;
+    }
+
+    /* Botões */
+    .hero-botoes {
+        flex-direction: column;
+
+        align-items: center;
+
+        width: 100%;
+
+        margin-top: 28px;
+    }
+
+    /* Botão */
+    .botao-principal,
+    .botao-secundario {
+        width: min(100%, 330px);
+
+        text-align: center;
+
+        padding: 15px 22px;
+    }
+
+    /* LUNA decorativo */
+    .hero-decoracao {
+        right: -30px;
+
+        bottom: 0;
+
+        font-size: 8rem;
+
+        letter-spacing: -8px;
+    }
+
+    /* Ondas */
+    .hero-ondas {
+        right: -155px;
+
+        bottom: 55px;
+
+        transform:
+            scale(0.65)
+            rotate(-8deg);
+    }
+
+    /* Esconde indicador caso exista */
+    .hero-scroll {
+        display: none;
+    }
+
+
+    /* =====================================
+       SEÇÕES
+       ===================================== */
+
+    .secao {
+        padding: 80px 6%;
+    }
+
+    /* Título pequeno */
+    .destaque-secao {
+        font-size: 0.65rem;
+
+        letter-spacing: 2.5px;
+
+        margin-bottom: 16px;
+    }
+
+
+    /* =====================================
+       SOBRE
+       ===================================== */
+
+    .sobre {
+        min-height: auto;
+
+        gap: 40px;
+    }
+
+    /* Imagem */
+    .sobre-imagem {
+        height: min(105vw, 380px);
+    }
+
+    /* Título */
+    .sobre-conteudo h2 {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+
+        letter-spacing: -2px;
+
+        line-height: 0.95;
+    }
+
+    /* Parágrafos */
+    .sobre-conteudo p {
+        font-size: 0.92rem;
+
+        line-height: 1.7;
+    }
+
+    /* Números */
+    .sobre-numeros {
+        gap: 25px;
+
+        margin-top: 35px;
+    }
+
+    /* Números menores */
+    .sobre-numeros strong {
+        font-size: 1.5rem;
+    }
+
+    .sobre-numeros span {
+        font-size: 0.6rem;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    /* =====================================
+       SETS
+       ===================================== */
+
+    .sets::before {
+        top: 30px;
+
+        right: 5%;
+
+        font-size: 4rem;
+    }
+
+    /* Cards */
+    .set-card {
+        grid-template-columns:
+            45px
+            minmax(0, 1fr)
+            55px;
+
+        min-height: 105px;
+
+        padding: 18px 5px;
+    }
+
+    /* Hover */
+    .set-card:hover {
+        padding-left: 10px;
+    }
+
+    /* Número */
+    .set-numero {
+        font-size: 0.65rem;
+    }
+
+    /* Nome */
+    .set-info h3 {
+        font-size: 1rem;
+    }
+
+    /* Estilo */
+    .set-info span {
+        font-size: 0.72rem;
+
+        line-height: 1.4;
+    }
+
+    /* Botão */
+    .botao-play {
+        width: 48px;
+        height: 48px;
+
+        font-size: 0.85rem;
+    }
+
+
+    /* =====================================
+       EVENTOS
+       ===================================== */
+
+    .eventos-container {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        margin-top: 40px;
+    }
+
+    /* Card */
+    .evento-card {
+        grid-template-columns:
+            70px
+            minmax(0, 1fr);
+
+        gap: 15px;
+
+        padding: 22px 15px;
+
+        min-height: 150px;
+    }
+
+    /* Remove deslocamento */
+    .evento-card:nth-child(2),
+    .evento-card:nth-child(3) {
+        transform: none;
+    }
+
+    /* Número */
+    .evento-data strong {
+        font-size: 2.2rem;
+    }
+
+    /* Mês */
+    .evento-data span {
+        font-size: 0.65rem;
+
+        letter-spacing: 2px;
+    }
+
+    /* Informações */
+    .evento-info > span {
+        font-size: 0.72rem;
+    }
+
+    /* Nome */
+    .evento-info h3 {
+        font-size: 1.1rem;
+
+        line-height: 1.2;
+    }
+
+    /* Horário */
+    .evento-info p {
+        font-size: 0.75rem;
+    }
+
+    /* Link */
+    .evento-link {
+        grid-column: 2;
+
+        font-size: 0.75rem;
+
+        margin-top: -5px;
+    }
+
+
+    /* =====================================
+       GALERIA
+       ===================================== */
+
+    .galeria-container {
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            min(80vw, 340px)
+            min(65vw, 280px)
+            min(65vw, 280px);
+
+        gap: 12px;
+
+        margin-top: 35px;
+    }
+
+    /* Primeira foto */
+    .galeria-1 {
+        grid-row: auto;
+    }
+
+    /* Remove deslocamento */
+    .galeria-2,
+    .galeria-3 {
+        transform: none;
+    }
+
+    /* Em celular não dependemos do hover */
+    .galeria-item:hover::before {
+        transform: scale(1.04);
+    }
+
+    .galeria-1:hover,
+    .galeria-2:hover,
+    .galeria-3:hover {
+        transform: none;
+    }
+
+    /* Mantém o indicador visual discreto */
+    .galeria-item::after {
+        opacity: 0.75;
+
+        padding: 14px;
+
+        font-size: 1.1rem;
+    }
+
+
+    /* =====================================
+       CONTATO
+       ===================================== */
+
+    .contato {
+        min-height: auto;
+
+        gap: 40px;
+    }
+
+    /* Título */
+    .contato h2 {
+        font-size: clamp(3rem, 14vw, 4.5rem);
+
+        letter-spacing: -3px;
+
+        line-height: 0.9;
+    }
+
+    /* Texto */
+    .contato p {
+        font-size: 0.9rem;
+
+        line-height: 1.7;
+    }
+
+    /* Botões */
+    .contato-botoes {
+        width: 100%;
+    }
+
+    .botao-contato {
+        width: 100%;
+
+        min-height: 60px;
+    }
+
+
+    /* =====================================
+       RODAPÉ
+       ===================================== */
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+
+        padding: 30px 6%;
+    }
+}
+
+
+/* =========================================
+   CELULARES MUITO PEQUENOS
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    /* Hero */
+    .hero-conteudo {
+        width: 92%;
+    }
+
+    /* Título */
+    .hero h1 {
+        font-size: 2.8rem;
+
+        letter-spacing: -2px;
+    }
+
+    /* Destaque */
+    .hero-destaque {
+        font-size: 0.55rem;
+
+        letter-spacing: 2px;
+    }
+
+    /* Sobre */
+    .sobre-conteudo h2 {
+        font-size: 2.7rem;
+    }
+
+    /* Sets */
+    .set-card {
+        grid-template-columns:
+            35px
+            minmax(0, 1fr)
+            50px;
+    }
+
+    .set-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .set-info span {
+        font-size: 0.65rem;
+    }
+
+    /* Evento */
+    .evento-card {
+        grid-template-columns:
+            60px
+            minmax(0, 1fr);
+    }
+
+    /* Contato */
+    .contato h2 {
+        font-size: 2.8rem;
+    }
+}
+
+
+/* =========================================
+   ACESSIBILIDADE / REDUÇÃO DE MOVIMENTO
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

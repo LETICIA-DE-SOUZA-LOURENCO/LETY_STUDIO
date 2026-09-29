@@ -1,0 +1,648 @@
+/* ============================= */
+/* CONFIGURAÇÃO GERAL */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ============================= */
+/* ROLAGEM SUAVE */
+/* ============================= */
+
+/* Faz a página deslizar suavemente
+   quando clicamos nos links do menu */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ============================= */
+/* PÁGINA */
+/* ============================= */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    color: #111111;
+}
+
+
+/* ============================= */
+/* CABEÇALHO */
+/* ============================= */
+
+header {
+    padding: 35px 20px;
+    text-align: center;
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+header h1 {
+    font-size: 36px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 17px;
+    color: #A78BFA;
+}
+
+
+/* ============================= */
+/* MENU */
+/* ============================= */
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #A78BFA;
+}
+
+
+/* ============================= */
+/* SEÇÕES */
+/* ============================= */
+
+main section {
+    padding: 100px 20px;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+main h2 {
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: bold;
+}
+
+.texto-secao {
+    margin: 20px auto 0;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 650px;
+    color: #555555;
+}
+
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-destaque {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background-color: #EDE9FE;
+    color: #7C3AED;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    max-width: 850px;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.hero h2 span {
+    color: #7C3AED;
+}
+
+.hero > p {
+    max-width: 700px;
+    margin-top: 25px;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #555555;
+}
+
+.hero-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+
+/* ============================= */
+/* BOTÕES */
+/* ============================= */
+
+button {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7C3AED;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #8B5CF6;
+    transform: translateY(-2px);
+}
+
+.botao-projetos {
+    padding: 15px 31px;
+    border: 2px solid #111111;
+    border-radius: 10px;
+    color: #111111;
+    background-color: transparent;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao-projetos:hover {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+
+/* ============================= */
+/* SERVIÇOS */
+/* ============================= */
+
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.servico-card {
+    background-color: #FFFFFF;
+    padding: 0;
+    border-radius: 16px;
+    border: 1px solid #E5E5E5;
+    transition: 0.3s;
+    overflow: hidden;
+    text-align: left;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    border-color: #0a1ad2;
+}
+
+
+/* ============================= */
+/* BOTÃO DO SERVIÇO */
+/* ============================= */
+
+/* Esse botão ocupa todo o card
+   e será usado para abrir os detalhes */
+
+.servico-botao {
+    width: 100%;
+    padding: 35px 30px;
+    background-color: #FFFFFF;
+    color: #111111;
+    border-radius: 0;
+    text-align: left;
+}
+
+
+/* Mantém o botão bonito quando
+   o mouse passa por cima */
+
+.servico-botao:hover {
+    background-color: #FFFFFF;
+    color: #111111;
+    transform: none;
+}
+
+
+/* Ícone do serviço */
+
+.servico-icone {
+    display: block;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+
+/* Nome do serviço */
+
+.servico-botao h3 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+
+/* Texto que indica que o card pode
+   ser aberto */
+
+.servico-indicador {
+    display: inline-block;
+    color: #7C3AED;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+/* ============================= */
+/* DETALHES DOS SERVIÇOS */
+/* ============================= */
+
+/* Essa parte começa escondida */
+
+.servico-detalhes {
+    display: none;
+    padding: 0 30px 30px;
+}
+
+
+/* Quando o JavaScript adicionar
+   a classe "aberto", os detalhes aparecem */
+
+.servico-card.aberto .servico-detalhes {
+    display: block;
+}
+
+
+/* Texto dentro dos detalhes */
+
+.servico-detalhes p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+
+/* Botão para solicitar aquele serviço */
+
+.servico-cta {
+    margin-top: 5px;
+    padding: 12px 20px;
+    font-size: 14px;
+}
+
+
+/* Quando o card estiver aberto,
+   mudamos a seta para cima */
+
+.servico-card.aberto .servico-indicador {
+    font-size: 0;
+}
+
+.servico-card.aberto .servico-indicador::after {
+    content: "Fechar ↑";
+    font-size: 14px;
+}
+
+
+/* ============================= */
+/* PROJETOS */
+/* ============================= */
+
+.projetos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.projeto-card {
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #E5E5E5;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.projeto-card:hover {
+    transform: translateY(-7px);
+    border-color: #A78BFA;
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.12);
+}
+
+
+/* ============================= */
+/* IMAGEM DOS PROJETOS */
+/* ============================= */
+
+.projeto-imagem {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.4s;
+}
+
+
+/* Pequeno zoom quando passa o mouse */
+
+.projeto-card:hover .projeto-imagem img {
+    transform: scale(1.03);
+}
+
+
+/* ============================= */
+/* CONTEÚDO DOS PROJETOS */
+/* ============================= */
+
+.projeto-conteudo {
+    padding: 28px;
+}
+
+.projeto-nicho {
+    color: #7C3AED;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.projeto-conteudo h3 {
+    font-size: 25px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.projeto-conteudo p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 15px;
+}
+
+.projeto-conteudo small {
+    display: block;
+    font-size: 13px;
+    color: #888888;
+    margin-bottom: 18px;
+}
+
+.projeto-link {
+    display: inline-block;
+    color: #7C3AED;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.projeto-link:hover {
+    color: #5B21B6;
+    transform: translateX(4px);
+}
+
+
+/* ============================= */
+/* CONTATO */
+/* ============================= */
+
+#contato {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.contato-destaque {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background-color: #EDE9FE;
+    color: #7C3AED;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+#contato h2 span {
+    color: #7C3AED;
+}
+
+.contato-container {
+    max-width: 760px;
+    margin: 50px auto 0;
+    padding: 50px 40px;
+    background-color: #111111;
+    border-radius: 20px;
+    color: #FFFFFF;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.contato-container h3 {
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+.contato-container p {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #DDDDDD;
+}
+
+.botoes-contato {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.botao-contato {
+    margin-top: 0;
+    transition: 0.3s;
+}
+
+#botao-whatsapp {
+    background-color: #7C3AED;
+}
+
+#botao-instagram {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+}
+
+#botao-instagram:hover {
+    background-color: #FFFFFF;
+    color: #111111;
+}
+
+
+/* ============================= */
+/* RODAPÉ */
+/* ============================= */
+
+footer {
+    background-color: #111111;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+footer p {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+footer span {
+    display: block;
+    margin-top: 8px;
+    color: #A78BFA;
+}
+
+
+/* ============================= */
+/* CELULARES */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    main h2 {
+        font-size: 38px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .hero h2 {
+        font-size: 43px;
+        letter-spacing: -1px;
+    }
+
+    .hero > p {
+        font-size: 17px;
+    }
+
+    .hero-botoes {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-botoes button,
+    .botao-projetos {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    main section {
+        padding: 70px 20px;
+    }
+
+    .servicos-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Ajusta os cards de serviço no celular */
+
+    .servico-botao {
+        padding: 28px 22px;
+    }
+
+    .servico-detalhes {
+        padding: 0 22px 25px;
+    }
+
+
+    .projetos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .projeto-imagem {
+        height: 160px;
+    }
+
+    .projeto-conteudo {
+        padding: 22px;
+    }
+
+    .contato-container {
+        padding: 35px 20px;
+    }
+
+    .contato-container h3 {
+        font-size: 23px;
+    }
+
+    .contato-container p {
+        font-size: 16px;
+    }
+
+    .botoes-contato {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botao-contato {
+        width: 100%;
+        max-width: 320px;
+    }
+
+}
