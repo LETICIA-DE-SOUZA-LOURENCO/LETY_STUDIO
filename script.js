@@ -120,8 +120,8 @@ const botaoInstagram =
 botaoInstagram.addEventListener("click", function () {
 
     // Link para o Direct do Instagram
-    const linkInstagram =
-        "https://ig.me/m/lety.dev";
+       const linkInstagram =
+            "https://ig.me/m/lety_.studio";
 
     // Abrimos o Instagram em outra aba
     window.open(linkInstagram, "_blank");
