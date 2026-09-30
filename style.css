@@ -13,9 +13,6 @@
 /* ROLAGEM SUAVE */
 /* ============================= */
 
-/* Faz a página deslizar suavemente
-   quando clicamos nos links do menu */
-
 html {
     scroll-behavior: smooth;
 }
@@ -159,6 +156,118 @@ main h2 {
 
 
 /* ============================= */
+/* TEXTO REVEAL */
+/* ============================= */
+
+.titulo-reveal {
+    position: relative;
+    overflow: visible;
+}
+
+.titulo-reveal .palavra-reveal {
+    display: inline-block;
+    white-space: nowrap;
+    color: #111111;
+}
+
+.titulo-reveal .letra-reveal {
+    display: inline-block;
+    opacity: 0;
+    transform:
+        translate3d(35px, 18px, 0)
+        rotate(8deg);
+    transform-origin: center bottom;
+
+    animation:
+        letraEntrando
+        1.15s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay: var(--atraso-letra);
+}
+
+.titulo-reveal .palavra-reveal[style*="#7C3AED"] {
+    color: #7C3AED;
+}
+
+
+/* ============================= */
+/* ANIMAÇÃO DAS LETRAS */
+/* ============================= */
+
+@keyframes letraEntrando {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(35px, 18px, 0)
+            rotate(8deg);
+    }
+
+    55% {
+        opacity: 1;
+
+        transform:
+            translate3d(-3px, -2px, 0)
+            rotate(-1.5deg);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate3d(0, 0, 0)
+            rotate(0deg);
+    }
+}
+
+
+/* ============================= */
+/* LINHA DECORATIVA */
+/* ============================= */
+
+.titulo-reveal .linha-reveal {
+    display: none;
+}
+
+
+/* ============================= */
+/* EFEITO DE ROLAGEM */
+/* ============================= */
+
+/*
+   Os elementos começam um pouco
+   mais para baixo e transparentes.
+*/
+.efeito-rolagem {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    /*
+       Entrada mais suave e demorada.
+       O cubic-bezier deixa o movimento
+       começar e terminar de forma mais natural.
+    */
+    transition:
+        opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/*
+   Quando o elemento entra na tela,
+   ele volta suavemente para sua posição.
+*/
+.efeito-rolagem.apareceu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ============================= */
 /* BOTÕES */
 /* ============================= */
 
@@ -228,9 +337,6 @@ button:hover {
 /* BOTÃO DO SERVIÇO */
 /* ============================= */
 
-/* Esse botão ocupa todo o card
-   e será usado para abrir os detalhes */
-
 .servico-botao {
     width: 100%;
     padding: 35px 30px;
@@ -240,18 +346,11 @@ button:hover {
     text-align: left;
 }
 
-
-/* Mantém o botão bonito quando
-   o mouse passa por cima */
-
 .servico-botao:hover {
     background-color: #FFFFFF;
     color: #111111;
     transform: none;
 }
-
-
-/* Ícone do serviço */
 
 .servico-icone {
     display: block;
@@ -259,17 +358,10 @@ button:hover {
     margin-bottom: 20px;
 }
 
-
-/* Nome do serviço */
-
 .servico-botao h3 {
     font-size: 23px;
     margin-bottom: 15px;
 }
-
-
-/* Texto que indica que o card pode
-   ser aberto */
 
 .servico-indicador {
     display: inline-block;
@@ -284,23 +376,14 @@ button:hover {
 /* DETALHES DOS SERVIÇOS */
 /* ============================= */
 
-/* Essa parte começa escondida */
-
 .servico-detalhes {
     display: none;
     padding: 0 30px 30px;
 }
 
-
-/* Quando o JavaScript adicionar
-   a classe "aberto", os detalhes aparecem */
-
 .servico-card.aberto .servico-detalhes {
     display: block;
 }
-
-
-/* Texto dentro dos detalhes */
 
 .servico-detalhes p {
     font-size: 16px;
@@ -309,18 +392,11 @@ button:hover {
     margin-bottom: 15px;
 }
 
-
-/* Botão para solicitar aquele serviço */
-
 .servico-cta {
     margin-top: 5px;
     padding: 12px 20px;
     font-size: 14px;
 }
-
-
-/* Quando o card estiver aberto,
-   mudamos a seta para cima */
 
 .servico-card.aberto .servico-indicador {
     font-size: 0;
@@ -378,9 +454,6 @@ button:hover {
     object-position: center;
     transition: 0.4s;
 }
-
-
-/* Pequeno zoom quando passa o mouse */
 
 .projeto-card:hover .projeto-imagem img {
     transform: scale(1.03);
@@ -599,9 +672,6 @@ footer span {
         grid-template-columns: 1fr;
     }
 
-
-    /* Ajusta os cards de serviço no celular */
-
     .servico-botao {
         padding: 28px 22px;
     }
@@ -609,7 +679,6 @@ footer span {
     .servico-detalhes {
         padding: 0 22px 25px;
     }
-
 
     .projetos-container {
         grid-template-columns: 1fr;
@@ -643,6 +712,25 @@ footer span {
     .botao-contato {
         width: 100%;
         max-width: 320px;
+    }
+
+
+    /* ============================= */
+    /* AJUSTE DO TEXTO REVEAL */
+    /* ============================= */
+
+    .titulo-reveal .letra-reveal {
+        transform:
+            translate3d(20px, 12px, 0)
+            rotate(6deg);
+    }
+
+    .titulo-reveal .palavra-reveal {
+        white-space: nowrap;
+    }
+
+    .titulo-reveal .linha-reveal {
+        display: none;
     }
 
 }
